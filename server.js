@@ -7,8 +7,15 @@ const port = process.env.PORT || 5500
 
 // Automatically sets HTTP hearders 
 app.use(cors())
+
+/* +++CORS FAIL test+++
+const corsOptions = { origin: 'https://test.com' }; 
+app.use(cors(corsOptions));   
+*/
+
 // Tell Express to serve any static files inside the "public" folder
 app.use(express.static('public'))
+
 
 // let rollCount = 0   // keeps total rolls
 // let rollHistory = [] // keeps last N rolls (though temporary)
