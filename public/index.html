@@ -7,12 +7,19 @@
 <body>
     <h1>Dice Roller Api Test</h1>
     <button id="roll">Roll a dice</button>
+    <!-- displays json results form the API -->
     <pre id="out"></pre>
 
+    <!-- client side js -->
     <script>
+        // Finds button bu id roll
         document.getElementById('roll').onclick = async () => {
+
+            // calls api using fetch
             const res = await fetch('api/random?min=1&max=6')
+            // waiting response
             const data = await res.json()
+            // takes <pre> element and replace with text
             document.getElementById('out').textContent = JSON.stringify(data);
         }
     </script>
