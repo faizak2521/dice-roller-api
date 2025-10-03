@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Tester</title>
+</head>
+<body>
+    <h1>Dice Roller Api Test</h1>
+    <button id="roll">Roll a dice</button>
+    <pre id="out"></pre>
+
+    <script>
+        document.getElementById('roll').onclick = async () => {
+            const res = await fetch('api/random?min=1&max=6')
+            const data = await res.json()
+            document.getElementById('out').textContent = JSON.stringify(data);
+        }
+    </script>
+</body>
+</html>
