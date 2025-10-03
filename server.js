@@ -10,6 +10,8 @@ app.use(cors())
 // Tell Express to serve any static files inside the "public" folder
 app.use(express.static('public'))
 
+let rollCount = 0   // keeps total rolls
+let rollHistory = [] // keeps last N rolls (though temporary)
 
 // API random number endpoint (/api/random?min=1&max=6)
 app.get('/api/random', (req, res) => {
@@ -20,8 +22,15 @@ app.get('/api/random', (req, res) => {
     // Generate random number between min and max
     const value = Math.floor(Math.random() * (max - min + 1)) + min
     
-    // Send back JSON
-    res.json({value})
+    rollCount++
+    rollHistory.push(value)
+
+    // Send back JSON + added history log while Dice roller page is active
+    res.json({
+        value,
+        rollCount,
+        history: rollHistory
+    })
 })
 
 // Listens for requests
