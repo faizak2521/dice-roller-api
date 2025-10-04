@@ -20,7 +20,7 @@ The API listens for requests and returns a random number between a minimum and m
 
 ---
 
-## 📌 Usage in a JS file (copy and paste)
+## Usage in a JS file (copy and paste)
 ```js
 async function rollDice() {
   const res = await fetch('https://dice-roller-api-fak-cybpc2h6djf5c5ex.canadacentral-01.azurewebsites.net/api/random?min=1&max=6')
